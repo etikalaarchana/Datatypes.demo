@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Animation</title>
+
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: green;
+    overflow: hidden;
+}
+
+.scene {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    color: aquamarineS;
+}
+
+/* Cake */
+.cake {
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    background: pink;
+    border-radius: 10px;
+    animation: cakeDrop 1.5s ease-out forwards;
+    z-index: 1;
+}
+
+/* Candles */
+.candles {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 14px;
+    animation: candleDrop 1.2s ease-in forwards;
+    animation-delay: 1.6s;
+    z-index: 2;
+}
+
+.candle {
+    width: 12px;
+    height: 45px;
+    background: white;
+    border-radius: 3px;
+    position: relative;
+}
+
+.flame {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 12px;
+    background: orange;
+    border-radius: 50%;
+    animation: flicker 0.25s infinite alternate;
+}
+
+/* Text */
+.text {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 2em;
+    opacity: 0;
+    animation: textShow 1s forwards;
+    animation-delay: 3.1s;
+}
+
+/* Animations */
+@keyframes cakeDrop {
+    to { bottom: 40px; }
+}
+
+@keyframes candleDrop {
+    to { top: 80px; } /* lands on cake */
+}
+
+@keyframes flicker {
+    from { transform: translateX(-50%) scale(1); }
+    to { transform: translateX(-50%) scale(1.2); }
+}
+
+@keyframes textShow {
+    to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+<div class="scene">
+
+    <div class="text"> Happy Birthday  to my love🎉 </div>
+
+    <div class="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+    </div>
+
+    <div class="cake"></div>
+
+</div>
+</body>
+</html>
+
